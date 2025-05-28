@@ -1,0 +1,60 @@
+
+  .scrollbar::-webkit-scrollbar {
+    @apply h-[10px] w-[0px] py-14;
+  }
+  
+  .scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-textGrayColor rounded-full;
+  }
+  
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-activeColor cursor-pointer;
+  }
+  
+  .scrollbar::-webkit-scrollbar-track {
+    @apply bg-backgroundColor;
+  }
+
+
+    .sidebar::-webkit-scrollbar {
+    @apply h-[10px] w-[1px] py-14;
+  }
+  
+  .sidebar::-webkit-scrollbar-thumb {
+    @apply bg-activeColor rounded-full;
+  }
+  
+  .sidebar::-webkit-scrollbar-thumb:hover {
+    @apply bg-activeColor cursor-pointer;
+  }
+  
+  .sidebar::-webkit-scrollbar-track {
+    @apply bg-activeColor;
+  }
+  
+
+  .h-content {
+    height: calc(100vh - 4rem);
+}
+
+.second-h-content {
+    height: calc(100vh - 4rem - 52px);
+}
+
+@media screen and (max-width: 639px) {
+    .second-h-content {
+        height: calc(100vh - 8rem - 52px);
+    }
+   
+}
+
+/* @media screen and (max-width: 640px) and (max-height:580px) {
+  .second-h-content {
+     height: calc(100vh - 4rem - 70px);
+  }
+} */
+
+
+
+
+
