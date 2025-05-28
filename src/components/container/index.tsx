@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import Breadcrumb from "../bread_crumb";
-import "./styles.css";
 
 
 const NAV_ITEMS = [
