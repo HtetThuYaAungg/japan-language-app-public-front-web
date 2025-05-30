@@ -1,0 +1,13 @@
+@reference 'tailwindcss';
+
+.theme_option {
+  @apply  w-[100px] h-[100px] text-center cursor-pointer border-2 border-solid rounded-[14px] transition-colors duration-300 relative;
+}
+
+.option_container {
+  @apply w-full h-full relative overflow-hidden rounded-[12px];
+}
+
+.option_sub_container {
+  @apply w-full h-full text-left cursor-pointer border-2 border-solid rounded-[10px] p-[4px] pt-[10px] pl-[10px] transition-colors duration-300 mt-6 ml-6 relative;
+}

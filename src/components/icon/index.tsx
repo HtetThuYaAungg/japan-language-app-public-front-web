@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { Home, Github , Linkedin,AtSign, CircleCheck } from "lucide-react";
-import GoogleLogo from "../../../../public/svg/google_logo.svg";
+import GoogleLogo from "../../../public/svg/google_logo.svg";
 
 
 // Define the IconState enum

@@ -1,0 +1,29 @@
+{
+    "utils" : {
+    "welcome": "ဟယ်လို",
+    "current_lang": "မြန်မာ",
+    "app_setting" : "အပြင်ဆင်များ",
+    "appearance": "သွင်ပြင်လက္ခဏာ",
+    "light": "အလင်း",
+    "dark": "အမှောင်",
+    "system": "စနစ်",
+    "languages" : "ဘာသာစကားများ",
+    "myanmar": "မြန်မာ",
+    "english": "အင်္ဂလိပ်"
+  },
+  "menus": {
+    "home": "အိမ်",
+    "courses": "လေ့လာမယ်",
+    "notification" : "ခေါင်းလောင်း",
+    "setting": "ပြင်ဆင်မယ်",
+    "basic" : "Basic",
+    "n5": "N5",
+    "n4": "N4",
+    "n3": "N3",
+    "n2": "N2",
+    "n1": "N1",
+    "unit-1": "Unit 1",
+    "unit-2": "Unit 2",
+    "unit-3": "Unit 3"
+  }
+}

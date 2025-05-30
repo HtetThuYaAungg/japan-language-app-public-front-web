@@ -1,0 +1,19 @@
+@reference 'tailwindcss';
+
+.scrollbar::-webkit-scrollbar {
+    @apply h-[10px] w-[0px] py-14;
+  }
+  
+  .scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-textGrayColor rounded-full;
+  }
+  
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-activeColor cursor-pointer;
+  }
+  
+  .scrollbar::-webkit-scrollbar-track {
+    @apply bg-backgroundColor;
+  }
+
+

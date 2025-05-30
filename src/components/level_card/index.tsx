@@ -24,13 +24,13 @@ const LevelCard = ({
   return (
     <Link href={route} className="group">
       <div
-        className="relative flex justify-center bg-background pt-5 px-2 rounded-3xl shadow-md 
+        className="relative flex justify-center bg-card pt-5 px-2 rounded-3xl shadow-md 
                    transition-all duration-300 ease-in-out transform will-change-transform 
                    hover:-translate-y-2 hover:shadow-2xl"
         style={{ minWidth, maxWidth, height }}
       >
         {/* Background Image Layers */}
-        <div className="absolute rounded-xl w-[90%] h-[80%] bg-background">
+        <div className="absolute rounded-xl w-[90%] h-[80%] bg-card">
           <Image
             src={imageSrc}
             fill
@@ -40,7 +40,7 @@ const LevelCard = ({
         </div>
 
         {/* Middle Image Layers */}
-        <div className="absolute rounded-xl w-[92%] h-[78%] bg-background">
+        <div className="absolute rounded-xl w-[92%] h-[78%] bg-card">
           <Image
             src={imageSrc}
             fill
@@ -50,7 +50,7 @@ const LevelCard = ({
         </div>
 
         {/* Main Image Layer */}
-        <div className="absolute rounded-xl w-[95%] h-[76%] bg-background shadow-sm">
+        <div className="absolute rounded-xl w-[95%] h-[76%] bg-card shadow-sm">
           <Image
             src={imageSrc}
             fill
@@ -60,7 +60,7 @@ const LevelCard = ({
         </div>
 
         {/* Bottom Info Section */}
-        <div className="absolute bottom-0 left-0 w-full bg-background py-2 rounded-b-2xl">
+        <div className="absolute bottom-0 left-0 w-full bg-card py-2 rounded-b-2xl">
           <div className="flex justify-between px-5 items-center text-active">
             <p>{title}</p>
             <p>{level}</p>

@@ -5,13 +5,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import Breadcrumb from "../bread_crumb";
+import { useTranslation } from "react-i18next";
 
 
 const NAV_ITEMS = [
-  { path: "/", label: "Home", Icon: Home },
-  { path: "/courses", label: "Courses", Icon: LibraryBig },
-  { path: "/notifications", label: "Notifications", Icon: Bell },
-  { path: "/setting", label: "Settings", Icon: Settings },
+  { path: "/", label: "home", Icon: Home },
+  { path: "/courses", label: "courses", Icon: LibraryBig },
+  { path: "/notification", label: "notification", Icon: Bell },
+  { path: "/setting", label: "setting", Icon: Settings },
 ];
 
 const NavigationLink = ({
@@ -22,7 +23,8 @@ const NavigationLink = ({
   path: string;
   label: string;
   Icon: any;
-}) => {
+  }) => {
+  const { t } = useTranslation();
   const pathname = usePathname();
   const [ripples, setRipples] = useState<
     { x: number; y: number; id: number }[]
@@ -60,7 +62,7 @@ const NavigationLink = ({
           isActive ? "text-active font-z06-walone-bold" : "text-primary"
         }`}
       >
-        {label}
+        {t(`menus.${label}`)}
       </span>
 
       {/* Ripple Effect using Framer Motion */}
@@ -70,7 +72,7 @@ const NavigationLink = ({
             key={ripple.id}
             initial={{ scale: 0, opacity: 0.5 }}
             animate={{ scale: 4, opacity: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut"}}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             className="absolute bg-active  rounded-full w-full h-[4rem] "
             style={{
               left: ripple.x,
@@ -120,7 +122,7 @@ export const Container = ({ children }: { children: React.ReactNode }) => {
             <div className=" h-[30px] float-end  ">
               <Breadcrumb />
             </div>
-            <div className="scrollbar w-full bg-secondary h-[calc(100vh-4rem-52px)] overflow-y-auto rounded-xl ">
+            <div className="scrollbar-thumb-background scrollbar-w-1  scrollbar-hover:scrollbar-thumb-gray scrollbar-active:scrollbar-thumb-active scrollbar overflow-y-scroll w-full bg-secondary max-[639px]:h-[calc(100vh-4rem-100px)] h-[calc(100vh-4rem-52px)] overflow-y-auto rounded-xl ">
               {children}
             </div>
           </div>

@@ -1,65 +1,78 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import React from "react";
+import { usePathname, useSearchParams } from "next/navigation";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import React, { Suspense } from "react";
+import { useTranslation } from "react-i18next";
 
-const Breadcrumb = () => {
-    const pathname = usePathname();
-    const pathSnippets = pathname.split("/").filter((i) => i);
+const DynamicBreadcrumbContent = () => {
+    const { t } = useTranslation();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const pathSnippets = pathname.split("/").filter((i) => i);
 
-    // Define default breadcrumb for "Home"
-    const defaultBreadcrumb = (
-        <li key="home" >
-            <Link href={"/"} className=" text-gray hover:text-active text-sm">
-                Home
-            </Link>
-        </li>
+  // Default breadcrumb for "Home"
+  const defaultBreadcrumb = (
+    <BreadcrumbItem key="home">
+      <Link href={"/"} className=" text-gray hover:text-active text-sm">
+        {t("menus.home")}
+      </Link>
+    </BreadcrumbItem>
+  );
+
+  const breadcrumbItems = pathSnippets.map((snippet, index) => {
+    const url = `/${pathSnippets.slice(0, index + 1).join("/")}`;
+    const isLast = index === pathSnippets.length - 1;
+    const breadcrumbLabel = decodeURIComponent(
+      snippet.charAt(0).toUpperCase() + snippet.slice(1)
     );
 
-    const breadcrumbItems = pathSnippets.map((snippet, index) => {
-        const url = `/${pathSnippets.slice(0, index + 1).join("/")}`;
-        const isFirst = index === 0;
-        const isLast = index === pathSnippets.length - 1;
-
-        const breadcrumbLabel = snippet.charAt(0).toUpperCase() + snippet.slice(1);
-
-        return isLast ? (
-            <li key={url} className="text-active pr-2 font-z06-walone-bold cursor-default text-sm">
-                {breadcrumbLabel}
-            </li>
-        ) : (
-            <li key={url} >
-                {isFirst ? (
-                    <Link href={url} className=" text-gray hover:text-active text-sm">
-                        {breadcrumbLabel}
-                    </Link>
-                ) : (
-                    <Link href={url} className=" text-gray hover:text-active text-sm">
-                        {breadcrumbLabel}
-                    </Link>
-                )}
-            </li>
-        );
-    });
-
-    // Combine default "Home" breadcrumb with dynamic items
-    const allBreadcrumbItems = [defaultBreadcrumb, ...breadcrumbItems];
-
-    return (
-        <nav aria-label="breadcrumb">
-            <ul className="flex flex-row-reverse items-center space-x-2 mr-2">
-                {allBreadcrumbItems.map((item, index) => (
-                    <React.Fragment key={index}>
-                        {item}
-                        {index < allBreadcrumbItems.length - 1 && (
-                            <span className=" text-gray text-sm font-walone_regular">{" / "}</span>
-                        )}
-                    </React.Fragment>
-                ))}
-            </ul>
-        </nav>
+    return isLast ? (
+      <BreadcrumbItem key={url}>
+        <BreadcrumbPage className="text-active pr-2 font-z06-walone-bold cursor-default text-sm">
+          {t(`menus.${breadcrumbLabel.toLowerCase()}`)}
+        </BreadcrumbPage>
+      </BreadcrumbItem>
+    ) : (
+      <BreadcrumbItem key={url}>
+        <Link
+          href={`${url}?${searchParams.toString()}`} // Preserve all current params
+          className=" text-gray hover:text-active text-sm"
+        >
+          {t(`menus.${breadcrumbLabel.toLowerCase()}`)}
+        </Link>
+      </BreadcrumbItem>
     );
+  });
+
+  const allBreadcrumbItems = [defaultBreadcrumb, ...breadcrumbItems];
+
+  return (
+    <Breadcrumb>
+      <BreadcrumbList className="flex flex-row-reverse items-center space-x-2 mr-2">
+        {allBreadcrumbItems.map((item, index) => (
+          <React.Fragment key={index}>
+            {item}
+            {index < allBreadcrumbItems.length - 1 && <BreadcrumbSeparator className=" rotate-180" />}
+          </React.Fragment>
+        ))}
+      </BreadcrumbList>
+    </Breadcrumb>
+  );
 };
 
-export default Breadcrumb;
+export default function DynamicBreadcrumb() {
+  return (
+    // You could have a loading skeleton as the `fallback` too
+    <Suspense fallback={null}>
+      <DynamicBreadcrumbContent />
+    </Suspense>
+  );
+}

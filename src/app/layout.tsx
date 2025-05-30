@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Archivo } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
 // Use the Google Font (Archivo)
 const archivo = Archivo({
@@ -39,14 +41,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      suppressContentEditableWarning
-      suppressHydrationWarning
-    >
+    <html suppressContentEditableWarning suppressHydrationWarning>
       <body
-        className={`${walone_bold.variable} ${walone_regular.variable} ${walone_thin.variable} ${archivo.variable} antialiased`}
+        className={`${walone_bold.variable} ${walone_regular.variable} ${walone_thin.variable} ${archivo.variable} antialiased bg-secondary`}
       >
-        {children}
+        {" "}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <LanguageProvider>
+          {children}
+          </LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
