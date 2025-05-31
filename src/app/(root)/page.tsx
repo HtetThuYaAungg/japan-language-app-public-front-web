@@ -1,21 +1,22 @@
 "use client"
-import { useLanguageContext } from '@/contexts/LanguageContext';
+
+import Link from 'next/link'
 import React from 'react'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next';
 
 const Home = () => {
 
-  const { t } = useTranslation();
-  const { language } = useLanguageContext();
-
+    const { t } = useTranslation();
+  
   return (
-    <div className=" px-2 font-z06-walone-bold">
-      <h1>
-        {t("utils.welcome")},{t("utils.current_lang")}
-      </h1>
-      <p>Current language: {language}</p>
-    </div>
-  );
+    <div className="w-full flex flex-col items-center gap-5 pb-6">
+      <Link href={"/game"}>
+        <button className="px-6 py-3 bg-active/90 text-white rounded-lg shadow hover:bg-active/70 cursor-pointer transition">
+          {t("home.play")}
+        </button>
+      </Link>
+</div>
+  )
 }
 
 export default Home

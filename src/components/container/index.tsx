@@ -90,19 +90,19 @@ const NavigationLink = ({
 
 export const Container = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className=" bg-secondary flex flex-col min-w-[350px]">
+    <div className=" bg-sidebar flex flex-col min-w-[350px]">
       {/* Top Bar */}
-      <div className="w-full bg-secondary h-[4rem]">
-        <div className="w-full bg-background max-[639px]:inset-shadow-2xs max-[639px]:rounded-b-xl rounded-br-xl h-[4rem] items-center flex justify-end pr-3">
+      <div className="w-full bg-background h-[4rem]">
+        <div className="w-full bg-sidebar max-[639px]:inset-shadow-2xs max-[639px]:rounded-b-xl rounded-br-xl h-[4rem] items-center flex justify-end pr-3">
           <button className="flex flex-col items-center ">
             <UserRound size={20} className="text-textColor" />
           </button>
         </div>
       </div>
 
-      <div className="flex max-[639px]:flex-col w-full bg-secondary">
+      <div className="flex max-[639px]:flex-col w-full bg-background">
         {/* Sidebar Navigation */}
-        <div className=" max-[639px]:hidden w-[5rem] h-content bg-background rounded-br-xl py-5">
+        <div className=" max-[639px]:hidden w-[5rem] h-content bg-sidebar rounded-br-xl py-5">
           <div className="  py-5 overflow-auto second-h-content rounded-full flex justify-center w-[5rem]">
             <nav className=" space-y-9 sidebar flex flex-col items-center ">
               {NAV_ITEMS.map(({ path, label, Icon }) => (
@@ -116,19 +116,19 @@ export const Container = ({ children }: { children: React.ReactNode }) => {
             </nav>
           </div>
         </div>
-        <div className=" w-full bg-background transition-none h-[calc(100vh-4rem)] ">
+        <div className=" w-full bg-sidebar transition-none h-[calc(100vh-4rem)] ">
           {/* Main Content */}
-          <div className="w-full bg-secondary h-[calc(100vh-4rem)] max-[639px]:rounded-none  rounded-tl-3xl px-4 pb-4 pt-2 ">
+          <div className="w-full bg-background h-[calc(100vh-4rem)] max-[639px]:rounded-none  rounded-tl-3xl px-4 pb-4 pt-2 ">
             <div className=" h-[30px] float-end  ">
               <Breadcrumb />
             </div>
-            <div className="scrollbar-thumb-background scrollbar-w-1  scrollbar-hover:scrollbar-thumb-gray scrollbar-active:scrollbar-thumb-active scrollbar overflow-y-scroll w-full bg-secondary max-[639px]:h-[calc(100vh-4rem-100px)] h-[calc(100vh-4rem-52px)] overflow-y-auto rounded-xl ">
+            <div className=" overflow-auto w-full bg-background max-[639px]:h-[calc(100vh-4rem-100px)] h-[calc(100vh-4rem-52px)] overflow-y-auto  rounded-xl ">
               {children}
             </div>
           </div>
           {/* Bottom Navigation (Mobile) */}
-          <div className="w-full max-[639px]:flex hidden  max-[639px]:fixed relative bottom-0 bg-secondary h-[4rem] items-center">
-            <div className=" w-full bg-background  inset-shadow-2xs rounded-t-xl h-[4rem] flex justify-around items-center">
+          <div className="w-full max-[639px]:flex hidden  max-[639px]:fixed relative bottom-0 bg-background h-[4rem] items-center">
+            <div className=" w-full bg-sidebar  inset-shadow-2xs rounded-t-xl h-[4rem] flex justify-around items-center">
               {NAV_ITEMS.map(({ path, label, Icon }) => (
                 <NavigationLink
                   key={path}

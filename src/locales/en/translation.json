@@ -17,6 +17,7 @@
     "courses": "Courses",
     "notification" : "Notification",
     "setting": "Setting",
+    "game": "Game",
     "basic" : "Basic",
     "n5": "N5",
     "n4": "N4",
@@ -26,6 +27,9 @@
     "unit-1": "Unit 1",
     "unit-2": "Unit 2",
     "unit-3": "Unit 3"
+  },
+  "home": {
+    "play": "I want you to play a game."
   }
 
 }

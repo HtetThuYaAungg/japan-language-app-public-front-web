@@ -53,7 +53,7 @@ const CategoryList: React.FC<CategoryCardProps> = ({
           animate={{ height: isOpen ? "300px" : "0px" }}
           className={` w-[150px] absolute  bottom-36 max-sm:right-5 sm:bottom-[100px] right-6  ${
             !isOpen && "hidden"
-          } bg-background border border-active rounded-xl shadow-lg overflow-y-auto flex flex-col items-center  py-2`}
+          } bg-card border border-active rounded-xl shadow-lg overflow-y-auto flex flex-col items-center  py-2`}
         >
           {/* List Items */}
           <AnimatePresence>
@@ -71,7 +71,7 @@ const CategoryList: React.FC<CategoryCardProps> = ({
                     <div
                       key={item.title}
                       onClick={() => handleSelectCategory(item.title)}
-                      className="group justify-center py-3 rounded-xl bg-background my-1 grid grid-cols-4 cursor-pointer items-center"
+                      className="group justify-center py-3 rounded-xl bg-card my-1 grid grid-cols-4 cursor-pointer items-center"
                     >
                       <div className="flex justify-center col-span-1">
                         <IconComponent className="w-4 h-4 text-active text-end" />
@@ -98,11 +98,11 @@ const CategoryList: React.FC<CategoryCardProps> = ({
 
         <button
           onClick={toggleOpen}
-          className="absolute bottom-24 max-[350px]:right-2 max-sm:right-5 sm:bottom-14 sm:right-6 lg row-span-4 w-[40px] h-[40px] bg-secondary border border-active rounded-full shadow-lg flex items-center justify-center"
+          className="absolute bottom-24 max-[350px]:right-2 max-sm:right-5 sm:bottom-14 sm:right-6 lg row-span-4 w-[40px] h-[40px] bg-card border border-card rounded-full shadow-lg flex items-center justify-center cursor-pointer"
         >
           {isOpen ? (
             <motion.div initial={{ scale: 1 }} animate={{ rotate: 90 }}>
-              <X className="w-5 h-5 text-destructive" />
+              <X className="w-5 h-5 text-active" />
             </motion.div>
           ) : (
             <motion.div initial={{ scale: 1 }}>

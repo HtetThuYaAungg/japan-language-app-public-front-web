@@ -41,7 +41,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html suppressContentEditableWarning suppressHydrationWarning>
+    <html  suppressHydrationWarning>
       <body
         className={`${walone_bold.variable} ${walone_regular.variable} ${walone_thin.variable} ${archivo.variable} antialiased bg-secondary`}
       >

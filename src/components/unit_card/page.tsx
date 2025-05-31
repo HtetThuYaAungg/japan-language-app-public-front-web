@@ -16,7 +16,7 @@ const UnitCard = ({ title, description, image, slogan, route }: UnitCardProps) =
             href={route}
             className="group"
         >
-            <div className="w-full p-2  rounded-2xl overflow-hidden shadow-md bg-background transition-all duration-300 ease-in-out transform will-change-transform 
+            <div className="w-full p-2  rounded-2xl overflow-hidden shadow-md bg-card transition-all duration-300 ease-in-out transform will-change-transform 
                    hover:-translate-y-2 hover:shadow-2xl">
                 <div className='flex gap-2 rounded-2xl'>
                     <Image
@@ -28,7 +28,7 @@ const UnitCard = ({ title, description, image, slogan, route }: UnitCardProps) =
                     />
                     <div className=' w-full'>
                         <div className="inline-block bg-active float-end opacity-90 text-xs px-6 py-1 mb-2 rounded-lg uppercase racking-wide">
-                            <span className=" text-foreground font-z06-walone-thin">{slogan}</span>
+                            <span className=" text-gray font-z06-walone-thin">{slogan}</span>
                         </div>
                         <h3 className=" font-z06-walone-bold  mb-2 px-1 line-clamp-2 text-gray">{title}</h3>
                         
